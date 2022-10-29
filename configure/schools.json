@@ -1,0 +1,27 @@
+{
+	"index_patterns": ["app.schools*"],
+	"settings": {
+		"number_of_shards": 5,
+		"number_of_replicas": 0,
+		"refresh_interval": "30s"
+	},
+	"mappings": {
+		"_source": {
+			"enabled": true
+		},
+		"properties": {
+			"id": {
+				"type": "number"
+			},
+			"name": {
+				"type": "string"
+			},
+			"createdAt": {
+				"type": "date"
+			},
+			"updatedAt": {
+				"type": "date"
+			}
+		}
+	}
+}

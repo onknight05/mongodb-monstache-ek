@@ -1,0 +1,30 @@
+{
+	"index_patterns": ["app.attendances*"],
+	"settings": {
+		"number_of_shards": 5,
+		"number_of_replicas": 0,
+		"refresh_interval": "30s"
+	},
+	"mappings": {
+		"_source": {
+			"enabled": true
+		},
+		"properties": {
+			"timestamp": {
+				"type": "date"
+			},
+			"user_id": {
+				"type": "number"
+			},
+			"school_id": {
+				"type": "number"
+			},
+			"temperature": {
+				"type": "number"
+			},
+			"type": {
+				"type": "number"
+			}
+		}
+	}
+}

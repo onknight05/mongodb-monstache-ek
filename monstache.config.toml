@@ -6,11 +6,55 @@ elasticsearch-urls = ["http://es7:9200"]
 elasticsearch-max-seconds = 5
 elasticsearch-max-conns = 6
 
-change-stream-namespaces = [""]
+#change-stream-namespaces = ["app.schools","app.users","app.attendances","app.absents"]
+
+namespace-regex = "^app"
+#direct-read-namespaces = ["app.schools","app.users","app.attendances","app.absents"]
+direct-read-namespaces = ["app.attendances","app.absents"]
 
 verbose = false
 
 enable-http-server = true
+
+resume = true
+resume-name = "default"
+
+#[[logs]]
+#error = "./monstache/logs/error.log"
+#info = "./monstache/logs/info.log"
+#warn = "./monstache/logs/warn.log"
+#trace = "./monstache/logs/trace.log"
+#stats = "./monstache/logs/stats.log"
+
+#[[mapping]]
+#namespace = "app.schools"
+#index = "schools"
+#
+#[[mapping]]
+#namespace = "app.users"
+#index = "users"
+#
+#[[mapping]]
+#namespace = "app.attendances"
+#index = "attendances"
+
+#[[script]]
+#namespace = "app.attendances"
+#script = """
+#module.exports = function(doc) {
+#	doc.timestamp = new Date(doc.timestamp);
+#	return doc;
+#}
+#"""
+#
+#[[script]]
+#namespace = "app.absents"
+#script = """
+#module.exports = function(doc) {
+#	doc.timestamp = new Date(doc.timestamp);
+#	return doc;
+#}
+#"""
 
 #[[script]]
 #namespace = "not.applied"
